@@ -1,5 +1,6 @@
 package host.plas.exampleproject;
 
+import host.plas.exampleproject.config.MainConfig;
 import io.streamlined.bukkit.PluginBase;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,8 @@ import java.util.concurrent.ConcurrentSkipListMap;
 public final class ExampleProject extends PluginBase {
     @Getter @Setter
     private static ExampleProject instance;
+    @Getter @Setter
+    private static MainConfig mainConfig;
 
     public ExampleProject() {
         super();
@@ -20,6 +23,8 @@ public final class ExampleProject extends PluginBase {
     public void onBaseEnabled() {
         // Plugin startup logic
         setInstance(this);
+
+        setMainConfig(new MainConfig());
     }
 
     @Override

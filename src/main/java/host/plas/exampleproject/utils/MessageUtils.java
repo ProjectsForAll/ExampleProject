@@ -51,6 +51,22 @@ public class MessageUtils {
         logMessage(getDebugLogPrefix() + message);
     }
 
+    public static void logInfo(String message, Object... args) {
+        logInfo(String.format(message, args));
+    }
+
+    public static void logError(String message, Object... args) {
+        logError(String.format(message, args));
+    }
+
+    public static void logWarning(String message, Object... args) {
+        logWarning(String.format(message, args));
+    }
+
+    public static void logDebug(String message, Object... args) {
+        logDebug(String.format(message, args));
+    }
+
     public static void logInfo(Throwable throwable) {
         logInfo(throwable.getMessage());
 
@@ -97,5 +113,13 @@ public class MessageUtils {
         if (throwable.getCause() != null) {
             logDebug(throwable.getCause());
         }
+    }
+
+    public void sendMessage(CommandSender sender, String message) {
+        sender.sendMessage(colorize(message));
+    }
+
+    public void sendMessage(CommandSender sender, String message, Object... args) {
+        sender.sendMessage(getInfoLogPrefix() + colorize(String.format(message, args)));
     }
 }

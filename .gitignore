@@ -114,8 +114,10 @@ gradle-app.setting
 # Common working directory
 run/
 
-/gradlew
-/gradlew.bat
 /gradle/
 /.idea/
 /.gradle/
+/gradle/
+
+/target/
+/.fastRequest/

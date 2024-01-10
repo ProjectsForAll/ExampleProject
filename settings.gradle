@@ -1,1 +1,1 @@
-rootProject.name = 'ExampleProject'
+rootProject.name = properties['name']

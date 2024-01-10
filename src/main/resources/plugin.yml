@@ -1,4 +1,3 @@
-name: ExampleProject
+name: '${name}'
 version: '${version}'
-main: host.plas.exampleproject.ExampleProject
-api-version: '1.20'
+main: '${main}'

@@ -1,10 +1,18 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'com.github.johnrengelman.shadow' version '7.1.2' // for shadowing
 }
 
-group = 'host.plas'
-version = '0.0.1'
+group = properties['group']
+version = properties['version']
+
+ext {
+    pluginMain = properties['plugin.main'] == 'default' ?
+            "${project.group}.${project.name.toLowerCase()}.${project.name}" :
+            properties['plugin.main']
+}
 
 repositories {
     mavenCentral()
@@ -25,12 +33,33 @@ repositories {
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT"
 
-    annotationProcessor(implementation(shadow("com.github.Streamline-Essentials:BukkitOfUtils:master-SNAPSHOT")))
+    annotationProcessor(shadow(implementation("com.github.Streamline-Essentials:BukkitOfUtils:master-SNAPSHOT")))
+}
+
+processResources {
+    // Debugging: Print values
+    doFirst {
+        println "Version: ${project.version}, Name: ${project.name}, Main: ${project.ext.pluginMain}"
+    }
+
+    inputs.property('name', "${project.name}")
+    inputs.property('version', "${project.version}")
+    inputs.property('main', "${project.ext.pluginMain}")
+
+    filesMatching('**/plugin.yml') {
+        expand (
+                'name': "${project.name}",
+                'version': "${project.version}",
+                'main': "${project.ext.pluginMain}",
+        )
+    }
 }
 
 shadowJar {
+    archiveClassifier.set('')
+
     buildDir = "target/"
-    archiveFileName = "${project.name}.jar"
+    archiveFileName = "${project.name}-${project.version}.jar"
 
     minimize()
 }

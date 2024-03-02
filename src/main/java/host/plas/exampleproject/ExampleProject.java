@@ -5,6 +5,7 @@ import host.plas.exampleproject.config.MainConfig;
 import io.streamlined.bukkit.PluginBase;
 import lombok.Getter;
 import lombok.Setter;
+import mc.obliviate.inventory.InventoryAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -19,6 +20,9 @@ public final class ExampleProject extends PluginBase {
     @Getter @Setter
     private static DatabaseConfig databaseConfig;
 
+    @Getter @Setter
+    private static InventoryAPI guiApi;
+
     public ExampleProject() {
         super();
     }
@@ -30,6 +34,8 @@ public final class ExampleProject extends PluginBase {
 
         setMainConfig(new MainConfig());
         setDatabaseConfig(new DatabaseConfig());
+
+        setGuiApi(new InventoryAPI(this));
     }
 
     @Override

@@ -8,6 +8,9 @@ plugins {
 group = properties['group']
 version = properties['version']
 
+java.sourceCompatibility = JavaVersion.VERSION_11
+java.targetCompatibility = JavaVersion.VERSION_11
+
 ext {
     pluginMain = properties['plugin.main'] == 'default' ?
             "${project.group}.${project.name.toLowerCase()}.${project.name}" :
@@ -34,6 +37,8 @@ dependencies {
     compileOnly "org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT"
 
     annotationProcessor(shadow(implementation("com.github.Streamline-Essentials:BukkitOfUtils:master-SNAPSHOT")))
+
+    implementation 'com.github.hamza-cskn.obliviate-invs:core:4.3.0'
 }
 
 processResources {

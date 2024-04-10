@@ -2,10 +2,10 @@ package host.plas.exampleproject.database;
 
 import host.plas.exampleproject.ExampleProject;
 import io.streamlined.bukkit.MessageUtils;
-import io.streamlined.bukkit.lib.thebase.lib.hikari.HikariConfig;
-import io.streamlined.bukkit.lib.thebase.lib.hikari.HikariDataSource;
 import lombok.Getter;
 import lombok.Setter;
+import tv.quaint.thebase.lib.hikari.HikariConfig;
+import tv.quaint.thebase.lib.hikari.HikariDataSource;
 
 import java.io.File;
 import java.sql.Connection;

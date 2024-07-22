@@ -1,8 +1,8 @@
 package host.plas.exampleproject.config;
 
+import host.plas.bou.sql.ConnectorSet;
+import host.plas.bou.sql.DatabaseType;
 import host.plas.exampleproject.ExampleProject;
-import host.plas.exampleproject.database.ConnectorSet;
-import host.plas.exampleproject.database.DatabaseType;
 import tv.quaint.storage.resources.flat.simple.SimpleConfiguration;
 
 public class DatabaseConfig extends SimpleConfiguration {

@@ -1,18 +1,19 @@
 package host.plas.exampleproject.managers;
 
-import io.streamlined.bukkit.instances.BaseRunnable;
+import host.plas.bou.scheduling.BaseRunnable;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
+import tv.quaint.objects.Identifiable;
 
 import java.util.Optional;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Getter @Setter
-public class NotificationTimer extends BaseRunnable {
+public class NotificationTimer extends BaseRunnable implements Identifiable {
     @Getter @Setter
-    private static ConcurrentSkipListSet<NotificationTimer> notifications = new ConcurrentSkipListSet<>();
+    private static ConcurrentSkipListSet<NotificationTimer> notifications = new ConcurrentSkipListSet<>(); // ConcurrentSkipListSet is thread-safe.
 
     public static Optional<NotificationTimer> addNotification(String identifier, Player player) {
         if (hasNotification(identifier, player)) return Optional.empty();
@@ -45,18 +46,18 @@ public class NotificationTimer extends BaseRunnable {
         return getNotificationTimer(identifier, player).isPresent();
     }
 
-    private String identifier;
-    private Player player;
+    private String identifier; // Gotten by the Identifiable interface.
+    private Player player; // The player that is on notification cooldown.
 
     private NotificationTimer(String identifier, Player player) {
-        super(5 * 20, 1, true); // 5 second delayed then cancels. Asynchronous.
+        super(5 * 20, 1); // 5 second delayed then cancels. Asynchronous.
 
         this.identifier = identifier;
         this.player = player;
     }
 
     @Override
-    public void execute() {
+    public void run() {
         removeNotification(identifier, player);
 
         cancel();

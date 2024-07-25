@@ -3,6 +3,8 @@ package host.plas.exampleproject;
 import host.plas.bou.PluginBase;
 import host.plas.exampleproject.config.DatabaseConfig;
 import host.plas.exampleproject.config.MainConfig;
+import host.plas.exampleproject.events.BouListener;
+import host.plas.exampleproject.events.BukkitListener;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +17,11 @@ public final class ExampleProject extends PluginBase {
     @Getter @Setter
     private static DatabaseConfig databaseConfig;
 
+    @Getter @Setter
+    private static BukkitListener bukkitListener;
+    @Getter @Setter
+    private static BouListener bouListener;
+
     public ExampleProject() {
         super();
     }
@@ -26,6 +33,9 @@ public final class ExampleProject extends PluginBase {
 
         setMainConfig(new MainConfig());
         setDatabaseConfig(new DatabaseConfig());
+
+        setBukkitListener(new BukkitListener());
+        setBouListener(new BouListener());
     }
 
     @Override

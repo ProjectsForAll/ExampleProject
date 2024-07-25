@@ -5,10 +5,9 @@ import host.plas.exampleproject.ExampleProject;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
-public class MainListener implements Listener {
-    public MainListener() {
+public class BukkitListener implements Listener {
+    public BukkitListener() {
         Bukkit.getPluginManager().registerEvents(this, ExampleProject.getInstance());
-
         MessageUtils.logInfo("Registered MainListener!");
     }
 }

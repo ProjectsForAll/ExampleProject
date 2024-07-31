@@ -1,6 +1,6 @@
 package host.plas.exampleproject;
 
-import host.plas.bou.PluginBase;
+import host.plas.bou.BetterPlugin;
 import host.plas.exampleproject.config.DatabaseConfig;
 import host.plas.exampleproject.config.MainConfig;
 import host.plas.exampleproject.events.BouListener;
@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public final class ExampleProject extends PluginBase {
+public final class ExampleProject extends BetterPlugin {
     @Getter @Setter
     private static ExampleProject instance;
     @Getter @Setter

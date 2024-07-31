@@ -8,6 +8,6 @@ import org.bukkit.event.Listener;
 public class BukkitListener implements Listener {
     public BukkitListener() {
         Bukkit.getPluginManager().registerEvents(this, ExampleProject.getInstance());
-        MessageUtils.logInfo("Registered MainListener!");
+        ExampleProject.getInstance().logInfo("Registered MainListener!");
     }
 }

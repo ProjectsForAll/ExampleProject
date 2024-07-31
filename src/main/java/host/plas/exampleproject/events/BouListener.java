@@ -8,6 +8,6 @@ import tv.quaint.events.BaseEventListener;
 public class BouListener implements BaseEventListener {
     public BouListener() {
         BaseEventHandler.bake(this, ExampleProject.getInstance());
-        MessageUtils.logInfo("Registered BouListener!");
+        ExampleProject.getInstance().logInfo("Registered BouListener!");
     }
 }

@@ -1,6 +1,5 @@
 package host.plas.exampleproject.events;
 
-import host.plas.bou.MessageUtils;
 import host.plas.exampleproject.ExampleProject;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;

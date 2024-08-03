@@ -2,3 +2,5 @@ name: '${name}'
 version: '${version}'
 main: '${main}'
 folia-supported: true
+depend:
+  - BukkitOfUtils

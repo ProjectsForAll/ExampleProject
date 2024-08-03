@@ -61,7 +61,7 @@ public class DatabaseConfig extends SimpleConfiguration {
     public DatabaseType getDatabaseType() {
         reloadResource();
 
-        return DatabaseType.valueOf(getOrSetDefault("database.type", "MYSQL"));
+        return DatabaseType.valueOf(getOrSetDefault("database.type", DatabaseType.SQLITE.name()).toUpperCase());
     }
 
     public String getSqliteFileName() {

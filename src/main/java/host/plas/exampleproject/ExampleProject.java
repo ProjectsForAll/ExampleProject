@@ -3,8 +3,7 @@ package host.plas.exampleproject;
 import host.plas.bou.BetterPlugin;
 import host.plas.exampleproject.config.DatabaseConfig;
 import host.plas.exampleproject.config.MainConfig;
-import host.plas.exampleproject.events.BouListener;
-import host.plas.exampleproject.events.BukkitListener;
+import host.plas.exampleproject.events.MainListener;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,9 +17,7 @@ public final class ExampleProject extends BetterPlugin {
     private static DatabaseConfig databaseConfig;
 
     @Getter @Setter
-    private static BukkitListener bukkitListener;
-    @Getter @Setter
-    private static BouListener bouListener;
+    private static MainListener mainListener;
 
     public ExampleProject() {
         super();
@@ -34,8 +31,7 @@ public final class ExampleProject extends BetterPlugin {
         setMainConfig(new MainConfig());
         setDatabaseConfig(new DatabaseConfig());
 
-        setBukkitListener(new BukkitListener());
-        setBouListener(new BouListener());
+        setMainListener(new MainListener());
     }
 
     @Override

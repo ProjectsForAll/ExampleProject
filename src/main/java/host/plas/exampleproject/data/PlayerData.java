@@ -95,4 +95,13 @@ public class PlayerData implements Identifiable {
     public boolean isFullyLoaded() {
         return fullyLoaded.get();
     }
+
+    public void saveAndUnload(boolean async) {
+        save(async);
+        unload();
+    }
+
+    public void saveAndUnload() {
+        saveAndUnload(true);
+    }
 }

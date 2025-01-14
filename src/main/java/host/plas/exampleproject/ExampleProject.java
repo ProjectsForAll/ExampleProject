@@ -3,6 +3,7 @@ package host.plas.exampleproject;
 import host.plas.bou.BetterPlugin;
 import host.plas.exampleproject.config.DatabaseConfig;
 import host.plas.exampleproject.config.MainConfig;
+import host.plas.exampleproject.data.PlayerManager;
 import host.plas.exampleproject.database.ExampleOperator;
 import host.plas.exampleproject.events.MainListener;
 import lombok.Getter;
@@ -43,5 +44,6 @@ public final class ExampleProject extends BetterPlugin {
     @Override
     public void onBaseDisable() {
         // Plugin shutdown logic
+        PlayerManager.getLoadedPlayers().forEach(playerData -> playerData.saveAndUnload(false));
     }
 }

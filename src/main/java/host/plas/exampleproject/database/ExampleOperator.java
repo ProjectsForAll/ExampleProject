@@ -42,6 +42,8 @@ public class ExampleOperator extends DBOperator {
 
     public CompletableFuture<Void> putPlayerThreaded(PlayerData playerData) {
         return AsyncUtils.executeAsync(() -> {
+            ensureDatabase();
+
             String s1 = Statements.getStatement(Statements.StatementType.PUSH_PLAYER_MAIN, getConnectorSet());
 
             execute(s1, stmt -> {
@@ -57,6 +59,8 @@ public class ExampleOperator extends DBOperator {
 
     public CompletableFuture<Optional<PlayerData>> pullPlayerThreaded(String uuid) {
         return CompletableFuture.supplyAsync(() -> {
+            ensureDatabase();
+
             String s1 = Statements.getStatement(Statements.StatementType.PULL_PLAYER_MAIN, getConnectorSet());
 
             AtomicReference<Optional<PlayerData>> ref = new AtomicReference<>(Optional.empty());

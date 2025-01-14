@@ -3,6 +3,7 @@ package host.plas.exampleproject;
 import host.plas.bou.BetterPlugin;
 import host.plas.exampleproject.config.DatabaseConfig;
 import host.plas.exampleproject.config.MainConfig;
+import host.plas.exampleproject.database.ExampleOperator;
 import host.plas.exampleproject.events.MainListener;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +16,9 @@ public final class ExampleProject extends BetterPlugin {
     private static MainConfig mainConfig;
     @Getter @Setter
     private static DatabaseConfig databaseConfig;
+
+    @Getter @Setter
+    private static ExampleOperator database;
 
     @Getter @Setter
     private static MainListener mainListener;
@@ -30,6 +34,8 @@ public final class ExampleProject extends BetterPlugin {
 
         setMainConfig(new MainConfig());
         setDatabaseConfig(new DatabaseConfig());
+
+        setDatabase(new ExampleOperator());
 
         setMainListener(new MainListener());
     }

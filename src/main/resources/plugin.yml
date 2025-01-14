@@ -1,6 +1,11 @@
 name: '${name}'
 version: '${version}'
 main: '${main}'
+
+authors:
+  - Drak
+
 folia-supported: true
+
 depend:
   - BukkitOfUtils

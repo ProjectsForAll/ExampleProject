@@ -5,7 +5,7 @@ ext {
     ]
     ANNO = [
             'com.github.Streamline-Essentials:BukkitOfUtils:master-SNAPSHOT',
-            'dev.folia:folia-api:1.20.4-R0.1-SNAPSHOT',
+            'dev.folia:folia-api:1.21.4-R0.1-SNAPSHOT',
             'net.kyori:adventure-api:4.16.0',
             'net.kyori:adventure-text-serializer-gson:4.16.0',
             'net.kyori:adventure-text-serializer-legacy:4.16.0',
@@ -16,7 +16,7 @@ ext {
     ]
     COMP_ONLY = [
             'com.github.Streamline-Essentials:BukkitOfUtils:master-SNAPSHOT',
-            'dev.folia:folia-api:1.20.4-R0.1-SNAPSHOT',
+            'dev.folia:folia-api:1.21.4-R0.1-SNAPSHOT',
             'net.kyori:adventure-api:4.16.0',
             'net.kyori:adventure-text-serializer-gson:4.16.0',
             'net.kyori:adventure-text-serializer-legacy:4.16.0',

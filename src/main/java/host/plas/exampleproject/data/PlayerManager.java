@@ -1,11 +1,15 @@
 package host.plas.exampleproject.data;
 
+import host.plas.bou.utils.UuidUtils;
 import host.plas.exampleproject.ExampleProject;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.Optional;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentSkipListSet;
 
 public class PlayerManager {
@@ -49,6 +53,12 @@ public class PlayerManager {
         return data;
     }
 
+    public static PlayerData createTemporaryPlayer(String uuid) {
+        PlayerData data = new PlayerData(uuid);
+
+        return data;
+    }
+
     public static PlayerData getOrCreatePlayer(Player player) {
         String uuid = player.getUniqueId().toString();
 
@@ -61,5 +71,22 @@ public class PlayerManager {
         d.augment(ExampleProject.getDatabase().pullPlayerThreaded(uuid));
 
         return d;
+    }
+
+    public static Optional<PlayerData> getOrGetPlayer(String uuid) {
+        Optional<PlayerData> data = getPlayer(uuid);
+        if (data.isPresent()) return data;
+
+        if (! UuidUtils.isValidPlayerUUID(uuid)) return Optional.empty();
+        OfflinePlayer player = Bukkit.getOfflinePlayer(UUID.fromString(uuid));
+        if (! player.hasPlayedBefore()) return Optional.empty();
+
+        PlayerData d = createTemporaryPlayer(uuid);
+        d.setName(player.getName());
+        d.load();
+
+        d.augment(ExampleProject.getDatabase().pullPlayerThreaded(uuid));
+
+        return Optional.of(d);
     }
 }

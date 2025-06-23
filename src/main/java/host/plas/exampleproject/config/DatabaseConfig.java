@@ -1,9 +1,9 @@
 package host.plas.exampleproject.config;
 
+import gg.drak.thebase.storage.resources.flat.simple.SimpleConfiguration;
 import host.plas.bou.sql.ConnectorSet;
 import host.plas.bou.sql.DatabaseType;
 import host.plas.exampleproject.ExampleProject;
-import tv.quaint.storage.resources.flat.simple.SimpleConfiguration;
 
 public class DatabaseConfig extends SimpleConfiguration {
     public DatabaseConfig() {

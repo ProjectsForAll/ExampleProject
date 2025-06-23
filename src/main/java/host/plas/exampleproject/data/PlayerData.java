@@ -1,12 +1,12 @@
 package host.plas.exampleproject.data;
 
+import gg.drak.thebase.objects.Identifiable;
 import host.plas.exampleproject.ExampleProject;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import tv.quaint.objects.Identifiable;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -29,6 +29,10 @@ public class PlayerData implements Identifiable {
 
     public PlayerData(Player player) {
         this(player.getUniqueId().toString(), player.getName());
+    }
+
+    public PlayerData(String uuid) {
+        this(uuid, "");
     }
 
     public Optional<Player> asPlayer() {
@@ -103,5 +107,12 @@ public class PlayerData implements Identifiable {
 
     public void saveAndUnload() {
         saveAndUnload(true);
+    }
+
+    public PlayerData waitUntilFullyLoaded() {
+        while (! isFullyLoaded()) {
+            Thread.onSpinWait();
+        }
+        return this;
     }
 }

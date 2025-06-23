@@ -1,9 +1,9 @@
 package host.plas.exampleproject.database;
 
+import gg.drak.thebase.async.AsyncUtils;
 import host.plas.bou.sql.DBOperator;
 import host.plas.exampleproject.ExampleProject;
 import host.plas.exampleproject.data.PlayerData;
-import tv.quaint.async.AsyncUtils;
 
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;

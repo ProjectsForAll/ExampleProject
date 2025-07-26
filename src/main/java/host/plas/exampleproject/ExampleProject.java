@@ -31,19 +31,23 @@ public final class ExampleProject extends BetterPlugin {
     @Override
     public void onBaseEnabled() {
         // Plugin startup logic
-        setInstance(this);
+        setInstance(this); // Set the instance of the plugin. // For use in other classes.
 
-        setMainConfig(new MainConfig());
-        setDatabaseConfig(new DatabaseConfig());
+        setMainConfig(new MainConfig()); // Instantiate the main config and set it.
+        setDatabaseConfig(new DatabaseConfig()); // Instantiate the database config and set it.
 
-        setDatabase(new ExampleOperator());
+        setDatabase(new ExampleOperator()); // Instantiate the database operator and set it. // Uses the database config.
 
-        setMainListener(new MainListener());
+        setMainListener(new MainListener()); // Instantiate the main listener and set it.
     }
 
     @Override
     public void onBaseDisable() {
         // Plugin shutdown logic
-        PlayerManager.getLoadedPlayers().forEach(playerData -> playerData.saveAndUnload(false));
+        PlayerManager.getLoadedPlayers().forEach(playerData -> {
+            // Save and unload all loaded player data.
+            // Saves it in sync (hence the false) so it doesn't lose data.
+            playerData.saveAndUnload(false);
+        });
     }
 }

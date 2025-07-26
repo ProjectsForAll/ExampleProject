@@ -2,6 +2,7 @@ package host.plas.exampleproject.data;
 
 import gg.drak.thebase.objects.Identifiable;
 import host.plas.exampleproject.ExampleProject;
+import host.plas.exampleproject.events.own.PlayerCreationEvent;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -75,7 +76,7 @@ public class PlayerData implements Identifiable {
         PlayerManager.savePlayer(this, async);
     }
 
-    public void augment(CompletableFuture<Optional<PlayerData>> future) {
+    public void augment(CompletableFuture<Optional<PlayerData>> future, boolean isGet) {
         fullyLoaded.set(false);
 
         future.whenComplete((data, error) -> {
@@ -90,6 +91,11 @@ public class PlayerData implements Identifiable {
                 PlayerData newData = data.get();
 
                 this.name = newData.getName();
+            } else {
+                if (! isGet) {
+                    new PlayerCreationEvent(this).fire();
+                    this.save();
+                }
             }
 
             this.fullyLoaded.set(true);

@@ -47,16 +47,11 @@ public class PlayerManager {
     }
 
     public static PlayerData createPlayer(Player player) {
-        PlayerData data = new PlayerData(player);
-        savePlayer(data);
-
-        return data;
+        return new PlayerData(player);
     }
 
     public static PlayerData createTemporaryPlayer(String uuid) {
-        PlayerData data = new PlayerData(uuid);
-
-        return data;
+        return new PlayerData(uuid);
     }
 
     public static PlayerData getOrCreatePlayer(Player player) {
@@ -68,7 +63,7 @@ public class PlayerManager {
         PlayerData d = createPlayer(player);
         d.load();
 
-        d.augment(ExampleProject.getDatabase().pullPlayerThreaded(uuid));
+        d.augment(ExampleProject.getDatabase().pullPlayerThreaded(uuid), false);
 
         return d;
     }
@@ -85,7 +80,7 @@ public class PlayerManager {
         d.setName(player.getName());
         d.load();
 
-        d.augment(ExampleProject.getDatabase().pullPlayerThreaded(uuid));
+        d.augment(ExampleProject.getDatabase().pullPlayerThreaded(uuid), true);
 
         return Optional.of(d);
     }

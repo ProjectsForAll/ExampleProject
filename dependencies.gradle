@@ -4,30 +4,16 @@ ext {
     SHADOW = [
     ]
     ANNO = [
-            'com.github.Streamline-Essentials:BukkitOfUtils:master-SNAPSHOT',
-            'dev.folia:folia-api:1.21.4-R0.1-SNAPSHOT',
-            'net.kyori:adventure-api:4.16.0',
-            'net.kyori:adventure-text-serializer-gson:4.16.0',
-            'net.kyori:adventure-text-serializer-legacy:4.16.0',
-            'net.kyori:adventure-text-serializer-plain:4.16.0',
-            'net.kyori:adventure-text-minimessage:4.16.0',
-            'net.kyori:adventure-text-serializer-ansi:4.16.0',
-            'net.kyori:ansi:1.0.3',
+            'gg.drak:BukkitOfUtils:1.16.0',
+            'dev.folia:folia-api:1.21.8-R0.1-SNAPSHOT',
     ]
     COMP_ONLY = [
-            'com.github.Streamline-Essentials:BukkitOfUtils:master-SNAPSHOT',
-            'dev.folia:folia-api:1.21.4-R0.1-SNAPSHOT',
-            'net.kyori:adventure-api:4.16.0',
-            'net.kyori:adventure-text-serializer-gson:4.16.0',
-            'net.kyori:adventure-text-serializer-legacy:4.16.0',
-            'net.kyori:adventure-text-serializer-plain:4.16.0',
-            'net.kyori:adventure-text-minimessage:4.16.0',
-            'net.kyori:adventure-text-serializer-ansi:4.16.0',
-            'net.kyori:ansi:1.0.3',
+            'gg.drak:BukkitOfUtils:1.16.0',
+            'dev.folia:folia-api:1.21.8-R0.1-SNAPSHOT',
     ]
     FILES = [
     ]
     OTHER_PLUGINS = [
-            'me.clip:placeholderapi:2.11.6',
+            'me.clip:placeholderapi:2.11.7',
     ]
 }

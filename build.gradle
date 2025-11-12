@@ -36,6 +36,10 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        name = "streamline-essentials"
+        url = "https://repo.codemc.org/repository/streamline-essentials/"
+    }
     maven { url "https://jitpack.io" }
     maven {
         name = "placeholderapi"

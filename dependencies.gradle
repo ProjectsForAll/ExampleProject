@@ -5,11 +5,11 @@ ext {
     ]
     ANNO = [
             'gg.drak:BukkitOfUtils:1.16.0',
-            'dev.folia:folia-api:1.21.8-R0.1-SNAPSHOT',
+            'dev.folia:folia-api:1.21.5-R0.1-SNAPSHOT',
     ]
     COMP_ONLY = [
             'gg.drak:BukkitOfUtils:1.16.0',
-            'dev.folia:folia-api:1.21.8-R0.1-SNAPSHOT',
+            'dev.folia:folia-api:1.21.5-R0.1-SNAPSHOT',
     ]
     FILES = [
     ]

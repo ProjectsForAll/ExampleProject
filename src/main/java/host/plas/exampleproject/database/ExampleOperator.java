@@ -42,7 +42,7 @@ public class ExampleOperator extends DBOperator {
 
     public CompletableFuture<Void> putPlayerThreaded(PlayerData playerData) {
         return AsyncUtils.executeAsync(() -> {
-            ensureDatabase();
+            ensureUsable();
 
             String s1 = Statements.getStatement(Statements.StatementType.PUSH_PLAYER_MAIN, getConnectorSet());
 
@@ -59,7 +59,7 @@ public class ExampleOperator extends DBOperator {
 
     public CompletableFuture<Optional<PlayerData>> pullPlayerThreaded(String uuid) {
         return CompletableFuture.supplyAsync(() -> {
-            ensureDatabase();
+            ensureUsable();
 
             String s1 = Statements.getStatement(Statements.StatementType.PULL_PLAYER_MAIN, getConnectorSet());
 

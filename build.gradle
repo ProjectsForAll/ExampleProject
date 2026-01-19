@@ -9,8 +9,8 @@ apply from: rootDir.toString() + '/dependencies.gradle'
 group = properties['group']
 version = properties['version']
 
-java.sourceCompatibility = JavaVersion.VERSION_11
-java.targetCompatibility = JavaVersion.VERSION_11
+//java.sourceCompatibility = JavaVersion.VERSION_11
+//java.targetCompatibility = JavaVersion.VERSION_11
 
 ext {
     pluginMain = properties['plugin.main'] == 'default' ?
@@ -48,8 +48,6 @@ repositories {
     maven { url 'https://repo.papermc.io/repository/maven-snapshots/' }
     maven { url 'https://repo.papermc.io/repository/maven-public/' }
 }
-
-disableAutoTargetJvm()
 
 dependencies {
     // Defaults.

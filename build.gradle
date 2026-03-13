@@ -19,7 +19,10 @@ ext {
 }
 
 repositories {
+    // Maven Defaults
     mavenCentral()
+    mavenLocal()
+    // Spigot / Bukkit
     maven {
         url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
 
@@ -30,21 +33,27 @@ repositories {
             includeGroup 'org.spigotmc'
         }
     }
+    // Sonatype
     maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url = 'https://oss.sonatype.org/content/repositories/central' }
     maven {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    // NMS
     maven {
-        name = "streamline-essentials"
-        url = "https://repo.codemc.org/repository/streamline-essentials/"
+        url = uri("https://repo.codemc.org/repository/nms/")
     }
-    maven { url "https://jitpack.io" }
+    // Streamline Essentials
+    maven {
+        url = uri("https://repo.codemc.org/repository/streamline-essentials/")
+    }
+    // PlaceholderAPI
     maven {
         name = "placeholderapi"
         url = "https://repo.extendedclip.com/content/repositories/placeholderapi/"
     }
+    // PaperMC
     maven { url 'https://repo.papermc.io/repository/maven-snapshots/' }
     maven { url 'https://repo.papermc.io/repository/maven-public/' }
 }

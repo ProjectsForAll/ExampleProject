@@ -4,11 +4,13 @@ ext {
     SHADOW = [
     ]
     ANNO = [
-            'gg.drak:BukkitOfUtils:1.16.0',
+            'org.spigotmc:spigot:1.21.11-R0.1-SNAPSHOT',
+            'gg.drak:BukkitOfUtils:1.18.0',
             'dev.folia:folia-api:1.21.5-R0.1-SNAPSHOT',
     ]
     COMP_ONLY = [
-            'gg.drak:BukkitOfUtils:1.16.0',
+            'org.spigotmc:spigot:1.21.11-R0.1-SNAPSHOT',
+            'gg.drak:BukkitOfUtils:1.18.0',
             'dev.folia:folia-api:1.21.5-R0.1-SNAPSHOT',
     ]
     FILES = [

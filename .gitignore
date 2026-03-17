@@ -121,3 +121,8 @@ run/
 
 /target/
 /.fastRequest/
+
+# AI
+/.claude/
+/.vscode/
+/.cursor/
